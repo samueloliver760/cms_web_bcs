@@ -1,10 +1,20 @@
 <?php
 
+use App\Http\Controllers\AwardController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\CompetitionTypeController;
+use App\Http\Controllers\ConductorController;
+use App\Http\Controllers\EducationProgramController;
+use App\Http\Controllers\FestivalController;
+use App\Http\Controllers\JuryController;
+use App\Http\Controllers\MedalController;
 use App\Http\Controllers\ParticipantController;
+use App\Http\Controllers\RoundTypeController;
+use App\Http\Controllers\VenueController;
 
 Route::get('/', function () {
     return view('dashboard');
@@ -26,8 +36,58 @@ Route::post('/city', [CityController::class, 'store']);
 Route::resource('/participant', ParticipantController::class);
 Route::post('/participant', [ParticipantController::class, 'store']);
 
+// Award
+Route::resource('/award', AwardController::class);
+Route::post('/award', [AwardController::class, 'store']);
+
+// Venue
+Route::resource('/venue', VenueController::class);
+Route::post('/venue', [VenueController::class, 'store']);
+
+// Competition Type
+Route::resource('/competition_type', CompetitionTypeController::class);
+Route::post('/competition_type', [CompetitionTypeController::class, 'store']);
+
+// Category
+Route::resource('/category', CategoryController::class);
+Route::post('/category', [CategoryController::class, 'store']);
+
+// Conductor
+Route::resource('/conductor', ConductorController::class);
+Route::post('/conductor', [ConductorController::class, 'store']);
+
+// Education Program
+Route::resource('/education_program', EducationProgramController::class);
+Route::post('/education_program', [EducationProgramController::class, 'store']);
+
+// Festival
+Route::resource('/festival', FestivalController::class);
+Route::post('/festival', [FestivalController::class, 'store']);
+
+// Jury
+Route::resource('/jury', JuryController::class);
+Route::post('/jury', [JuryController::class, 'store']);
+
+// Round Type
+Route::resource('/round_type', RoundTypeController::class);
+Route::post('/round_type', [RoundTypeController::class, 'store']);
+
+// Medal
+Route::resource('/medal', MedalController::class);
+Route::post('//medal', [MedalController::class, 'store']);
+
 // Datatable
 Route::post('/datatable/country', [CountryController::class, 'datatable']);
 Route::post('/datatable/province', [ProvinceController::class, 'datatable']);
 Route::post('/datatable/city', [CityController::class, 'datatable']);
 Route::post('/datatable/participant', [ParticipantController::class, 'datatable']);
+Route::post('/datatable/award', [AwardController::class, 'datatable']);
+Route::post('/datatable/venue', [VenueController::class, 'datatable']);
+Route::post('/datatable/competition_type', [CompetitionTypeController::class, 'datatable']);
+Route::post('/datatable/category', [CategoryController::class, 'datatable']);
+Route::post('/datatable/conductor', [ConductorController::class, 'datatable']);
+Route::post('/datatable/education_program', [EducationProgramController::class, 'datatable']);
+Route::post('/datatable/venue', [VenueController::class, 'datatable']);
+Route::post('/datatable/jury', [JuryController::class, 'datatable']);
+Route::post('/datatable/round_type', [RoundTypeController::class, 'datatable']);
+Route::post('/datatable/medal', [MedalController::class, 'datatable']);
